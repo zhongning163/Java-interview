@@ -1,0 +1,6 @@
+常用的类：
+BufferedReader BufferedWriter FileReader FileWriter String Integer
+常用的包：
+java.lang java.awt java.io java.util java.sql javax.xml javax.servlet java.ejb java.net javax.faces
+常用的接口:
+List Map Document NodeList EjbObject EjbHome SessionBean EntityBean
