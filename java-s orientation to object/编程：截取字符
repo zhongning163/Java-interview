@@ -1,0 +1,27 @@
+编写一个截取字符串的函数，输入一个字符串和字节数，输出为按字节截取的字符串，但是要保证汉字不被截半个，
+如“我ABC”，4，应该截取为“我AB”，输入“我ABC汉DEF”，6 应该输出为“我ABC”而不是“我ABC+汉的半个”
+class SplitAString 
+{	
+	public static void split(String source,int num)
+	{
+		int k=0;
+		String temp="";
+		for(int i=0;i<source.length();i++)
+		{
+			//getBytes() 是Java编程语言中将一个字符串转化为一个字节数组byte[]的方法
+			byte[] b=(source.charAt(i)+"").getBytes();
+			//累计字符串的长度，汉字占两个字节，英文字母占一个字节	
+			k=k+b.length;
+			if(k>num)
+			{
+				break;
+			}
+			temp=temp+source.charAt(i);
+		}
+		System.out.println(temp);
+	}
+	public static void main(String[] args) 
+	{
+		SplitAString.split("我ABC汉DEF",6);
+	}
+}
