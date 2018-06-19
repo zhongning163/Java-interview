@@ -1,0 +1,2 @@
+Integer.parseInt("1234");
+Double.parseDouble("123.2");
