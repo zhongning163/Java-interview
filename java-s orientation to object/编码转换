@@ -1,0 +1,3 @@
+实现将GB2312编码的字符串转换为ISO-8859-1编码的字符串
+String a=new String("中".getBytes("gb2312"),"iso-8859-1");
+String a=new String("中".getBytes("iso-8859-1"));
