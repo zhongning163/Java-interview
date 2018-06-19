@@ -1,1 +1,5 @@
  
+public：不同包，同一包、类、子类内都可以用
+protected：不同包的子类、同一包、类内都可以用
+default：同一包内、类内
+private：同一类内
