@@ -1,0 +1,3 @@
+产生一个Class数组，说明方法的参数
+通过Class对象及方法参数得到Method
+通过method.invoke(实例，参数值数组)唤醒方法
