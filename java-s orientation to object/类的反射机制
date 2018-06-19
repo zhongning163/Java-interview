@@ -1,0 +1,2 @@
+通过类（Class对象），可以得出当前类的fields、method、constructor、interface、superclass、modified等，
+同时可以通过类实例化一个实例、设置属性、唤醒方法、Spring中一切都是反射，Struts、Hibernate都是通过类的反射机制进行开发的
