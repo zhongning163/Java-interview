@@ -1,0 +1,10 @@
+ArrayList是基于数组实现的，所以查改快，增删慢；
+LinkedList是基于链表实现的，所以查改慢，增删快
+Vector:线程安全，速度慢（synchronized）
+
+LinkedList 和 ArrayList 都是不同步的，线程不安全；
+Vector 和 Stack 都是同步的，线程安全；
+Set是线程不安全的；
+
+HashMap和HashTable都实现的Map接口，
+HashTable线程安全，HashMap线程不安全
