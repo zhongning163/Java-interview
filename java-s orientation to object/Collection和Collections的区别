@@ -1,2 +1,7 @@
 Collection是集合的根接口，其下有set和List
 Collections是集合的算法
+
+List、set继承于Collection
+Map没有继承于Collection，它是相对独立的
+
+属于Collection类型的对象，可以通过构造函数一个集合构造成另一个集合
