@@ -16,6 +16,7 @@ public class StackDemo
 			System.out.println("栈已满！");
 			return false;
 		}
+		//后一个data是传给方法的整型数据，前一个data是存储数据的数组名
 		this.data[++top]=data;
 		return true;
 	}
