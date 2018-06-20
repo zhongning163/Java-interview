@@ -1,0 +1,2 @@
+Collection是集合的根接口，其下有set和List
+Collections是集合的算法

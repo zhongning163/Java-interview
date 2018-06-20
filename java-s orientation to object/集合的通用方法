@@ -1,0 +1,12 @@
+集合List的遍历方法有：
+Iterator；
+Enumeration；
+For；
+get；
+set；
+
+Collection的通用方法：
+Iterator（）
+Add（）
+Clear（）
+remove（）

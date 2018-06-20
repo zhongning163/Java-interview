@@ -1,0 +1,55 @@
+public class StackDemo
+{
+	int[] data;
+	int maxSize;
+	int top;
+	public StackDemo(int maxSize)
+	{
+		this.maxSize=maxSize;
+		data=new int[maxSize];
+		top=-1;
+	}
+	/**
+	*依次加入数据
+	*@param data 要加入的数据
+	*@return 添加是否成功
+	*/
+	public boolean push(int data)
+	{
+		if(top+1==maxSize)
+		{
+			System.out.println("栈已满！");
+			return false;
+		}
+		//后一个data是传给方法的整型数据，前一个data是存储数据的数组名
+		this.data[++top]=data;
+		return true;
+	}
+	/**
+	*从栈中取出数据
+	*@return取出的数据
+	*/
+	public int pop() throws Exception
+	{
+		if(top==-1)
+		{
+			throw new Exception("栈已空");
+		}
+		return this.data[top--];
+	}
+
+	public static void main(String[] args) throws Exception
+	{
+		StackDemo stack=new StackDemo(1000);
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		stack.push(4);
+		stack.push(5);
+		while(stack.top>=0)
+		{
+			System.out.println(stack.pop());
+		}
+	}
+}
+
