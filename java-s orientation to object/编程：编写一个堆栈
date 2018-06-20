@@ -9,6 +9,11 @@ public class StackDemo
 		data=new int[maxSize];
 		top=-1;
 	}
+	/**
+	*依次加入数据
+	*@param data 要加入的数据
+	*@return 添加是否成功
+	*/
 	public boolean push(int data)
 	{
 		if(top+1==maxSize)
@@ -20,6 +25,10 @@ public class StackDemo
 		this.data[++top]=data;
 		return true;
 	}
+	/**
+	*从栈中取出数据
+	*@return取出的数据
+	*/
 	public int pop() throws Exception
 	{
 		if(top==-1)
