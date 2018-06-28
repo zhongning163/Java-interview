@@ -1,1 +1,7 @@
 ConcurrentHashMap结合了HashMap和HashTable二者的优势
+
+HashMap没有考虑同步，HashTable考虑了同步的问题。
+但是HashTable在每次同步执行时都要锁住整个结构。
+
+ConcurrentHashMap锁的方式是稍微细粒度的。
+ConcurrentHashMap将Hash表分为16个桶（默认值），诸如get，put，remmove等常用操作只锁当前需要用到的桶
