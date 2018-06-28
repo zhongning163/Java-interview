@@ -2,9 +2,21 @@ ArrayList是基于数组实现的，所以查改快，增删慢；
 LinkedList是基于链表实现的，所以查改慢，增删快
 Vector:线程安全，速度慢（synchronized）
 
+  arraylist中的数据在内存中是连续的，成块的，查找的时候直接顺序遍历内存就可以了。
+  插入删除的时候，就要把修改的那个节点之后的所有数据都向后移动，或者向前移动。所以就慢了。
+    
+ 而linkedlist在内存中是以链表形式组织的。链表中的数据在内存中是松散的，每一个节点都有一个指针指向下一个节点，这样查找起来就比较慢了。
+ 而插入删除的时候就是断开一个节点，然后插入删除之后再接起来。
+
 LinkedList 和 ArrayList 都是不同步的，线程不安全；
 Vector 和 Stack 都是同步的，线程安全；
+
 Set是线程不安全的；
 
 HashMap和HashTable都实现的Map接口，
-HashTable线程安全，HashMap线程不安全
+HashTable线程安全，使用了synchronized关键字
+HashMap线程不安全，没有考虑同步
+
+HashMap允许null作为key，HashTable不允许null作为key
+
+
