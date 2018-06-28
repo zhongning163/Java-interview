@@ -14,4 +14,9 @@ Vector 和 Stack 都是同步的，线程安全；
 Set是线程不安全的；
 
 HashMap和HashTable都实现的Map接口，
-HashTable线程安全，HashMap线程不安全
+HashTable线程安全，使用了synchronized关键字
+HashMap线程不安全，没有考虑同步
+
+HashMap允许null作为key，HashTable不允许null作为key
+
+
