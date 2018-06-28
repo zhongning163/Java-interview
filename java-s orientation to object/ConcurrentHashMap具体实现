@@ -1,0 +1,7 @@
+1.
+  该类包括两个静态内部类HashEntry和Segment；
+  前者用来封装映射表的键值对，后者用来充当锁的角色
+  
+2.
+Segment是一种可重入的锁ReentrantLock，每个Segment守护一个HashEntry数组里的元素，
+当对HashEntry数组的数据进行修改时，必须首先获得对应的Segment锁
