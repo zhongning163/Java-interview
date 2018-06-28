@@ -1,2 +1,2 @@
 # Java-interview
-some question being asked frequently in an interview
+some questions being asked frequently in an interview
