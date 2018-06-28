@@ -1,0 +1,22 @@
+Map接口和Collection接口是所有集合框架的父接口
+
+Collection接口的子接口包括：
+Set接口和List接口
+
+Map接口的实现类主要有：
+  HashMap、TreeMap、Hashtable、ConcurrentHashMap、Properties
+  
+Set接口的实现类主要有：
+  HashSet、TreeSet、LinkedHashSet
+  
+List接口的实现类主要有：
+  ArrayList、LinkedList、Stack、Vector
+  
+  |-Collection
+    |-Set
+      |-HashSet、TreeSet、LinkedHashSet
+    |-List
+       ArrayList、LinkedList、Stack、Vector
+       
+  |-Map
+    |-HashMap、TreeMap、Hashtable、ConcurrentHashMap、Properties
