@@ -53,3 +53,31 @@ value在准备阶段过后的初始值为0而不是123,而把value赋值的putst
   其实这个参数是告诉虚拟机，是否要对类进行初始化。
   e、通过ClassLoader默认的loadClass方法，也不会触发初始化动作。
 
+jdk中的ClassLoader的源码实现：
+protected synchronized Class<?> loadClass(String name, boolean resolve)
+        throws ClassNotFoundException {
+    // First, check if the class has already been loaded
+    Class c = findLoadedClass(name);
+    if (c == null) {
+        try {
+            if (parent != null) {
+                c = parent.loadClass(name, false);
+            } else {
+                c = findBootstrapClass0(name);
+            }
+        } catch (ClassNotFoundException e) {
+            // If still not found, then invoke findClass in order
+            // to find the class.
+            c = findClass(name);
+        }
+    }
+    if (resolve) {
+        resolveClass(c);
+    }
+    return c;
+}
+
+首先通过Class c = findLoadedClass(name);判断一个类是否已经被加载过。
+如果没有被加载过执行if (c == null)中的程序，遵循双亲委派的模型，首先会通过递归从父加载器开始找，直到父类加载器是Bootstrap ClassLoader为止。
+最后根据resolve的值，判断这个class是否需要解析。
+
