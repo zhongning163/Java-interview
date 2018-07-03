@@ -54,7 +54,8 @@ public class StackDemo
 }
 
 ====================================================================
-
+栈数组实现一：
+优点：入栈和出栈速度快，缺点：长度有限 
 public class Stack {
 	private int top = -1;
 	private Object[] objs;
@@ -95,3 +96,96 @@ public class Stack {
 		s.display();
 		s.push(92);	//显示异常，栈已满
 }
+
+结果：
+bottom -> top: | 1 | 2 | 
+2
+bottom -> top: | 1 | 
+bottom -> top: | 1 | 99 | 
+Exception in thread "main" java.lang.Exception: Stack is full!
+	at Stack.push(Stack.java:17)
+	at Stack.main(Stack.java:44)
+数据项入栈和出栈的时间复杂度都为常数O(1)	
+
+===============================================================================================================
+栈数组实现二：优点：无长度限制，缺点：入栈慢
+import java.util.Arrays;
+
+public class UnbounderStack
+{
+	private int top = -1;
+	private Object[] objs;
+	
+	public UnbounderStack() thorws Exception
+	{
+		this(10);		//如果没有指定栈的容量，默认初始为10；
+	}
+	public UnbounderStack(int capacity) thorws Exception
+	{
+		if(capacity<0)		//数组长度可以为0
+			throw new Exception("Illegal capacity:"+capacity);
+		objs=new Object[capacity]; 	
+	}
+	
+	public void push(Object obj)
+	{
+		if(top == obj.length - 1)
+		{
+			this.enlarge();
+		}
+		objs[++top] = obj;
+	}
+	public Object pop() throws Exception
+	{
+		if(top==-1)
+			throw new Exception("Stack is empty！");
+		return objs[top--];
+	}
+	public void enlarge()
+	{
+		int num=objs.length/3;
+		if(num == 0)
+			num = 1;
+		//调用Arrays类中的copyOf方法，copyOf(T[] original, int newLength)，original - 要复制的数组
+		//newLength - 要返回的副本的长度
+		objs=Arrays.copyOf(objs,objs.length+num);	
+	}
+	
+	public void display()
+	{
+		System.out.println("bottom->top:|");
+		for(int i=0;i<=top;i++)
+		{
+			System.out.println(+objs[i]+"|");
+		}
+		System.out.print("\n");
+	}
+	
+	public static void main(String[] args) throws Exception
+	{
+		UnboundedStack us = new UnboundedStack(2);
+		us.push(1);
+		us.push(2);
+		us.dispaly();
+		System.out.println(us.pop());
+		us.dispaly();
+		us.push(99);
+		us.dispaly();
+		us.push(99);
+		us.dispaly();
+
+	}
+}
+
+结果：
+bottom -> top: | 1 | 2 | 
+2
+bottom -> top: | 1 | 
+bottom -> top: | 1 | 99 | 
+bottom -> top: | 1 | 99 | 99 | 
+由于该栈是由数组实现的，数组的长度是固定的，当栈空间不足时，必须将原数组数据复制到一个更长的数组中，
+考虑到入栈时或许需要进行数组复制，平均需要复制N/2个数据项，故入栈的时间复杂度为O(N)，出栈的时间复杂度依然为O(1)
+
+========================================================================================================
+
+栈单链表实现：没有长度限制，并且出栈和入栈速度都很快
