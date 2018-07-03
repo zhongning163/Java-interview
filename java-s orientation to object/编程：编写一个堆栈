@@ -54,7 +54,7 @@ public class StackDemo
 }
 
 ====================================================================
-
+优点：入栈和出栈速度快，缺点：长度有限 
 public class Stack {
 	private int top = -1;
 	private Object[] objs;
@@ -95,3 +95,14 @@ public class Stack {
 		s.display();
 		s.push(92);	//显示异常，栈已满
 }
+
+结果：
+bottom -> top: | 1 | 2 | 
+2
+bottom -> top: | 1 | 
+bottom -> top: | 1 | 99 | 
+Exception in thread "main" java.lang.Exception: Stack is full!
+	at Stack.push(Stack.java:17)
+	at Stack.main(Stack.java:44)
+	
+===============================================================================================================
